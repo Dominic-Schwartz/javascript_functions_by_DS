@@ -16,16 +16,16 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6
 
-let cumLaudeCount = 0;
+let counter = 0;
 
 for (let i = 0; i < grades.length; i++) {
 
     if (grades[i] >= 8) {
-        cumLaudeCount++;
+        counter++;
     }
 }
 
-console.log(cumLaudeCount);
+console.log(counter);
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
@@ -109,6 +109,15 @@ console.log(averageNumber);
 
 // ---- Verwachte uitkomst: 9
 
+let highest = grades[0];
+
+for (let i = 1; i < grades.length; i++) {
+    if (grades[i] > highest) {
+        highest = grades[i];
+    }
+}
+
+console.log(highest);
 
 /* 3b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
@@ -119,3 +128,18 @@ console.log(averageNumber);
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+
+function getHighestGrade(gradesArray) {
+    let highest = gradesArray[0];
+
+    for (let i = 1; i < gradesArray.length; i++) {
+        if (gradesArray[i] > highest) {
+            highest = gradesArray[i];
+        }
+    }
+
+    return highest;
+}
+
+const testGrades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
+console.log(getHighestGrade(testGrades));
